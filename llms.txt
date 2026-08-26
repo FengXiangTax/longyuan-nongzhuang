@@ -37,12 +37,12 @@
 - 韶关市乡村旅游培训实践基地
 
 ## 站点页面
-- 首页：https://www.longyuannongzhuang.com/
-- 关于我们：https://www.longyuannongzhuang.com/about.html
-- 农庄一览（美食 / 宴席 / 田园体验）：https://www.longyuannongzhuang.com/farm.html
-- 民宿一览：https://www.longyuannongzhuang.com/homestay.html
-- 当地景点：https://www.longyuannongzhuang.com/attractions.html
-- 联系我们（预订 / 导航）：https://www.longyuannongzhuang.com/contact.html
+- 首页：https://www.longyuannz.cn/
+- 关于我们：https://www.longyuannz.cn/about.html
+- 农庄一览（美食 / 宴席 / 田园体验）：https://www.longyuannz.cn/farm.html
+- 民宿一览：https://www.longyuannz.cn/homestay.html
+- 当地景点：https://www.longyuannz.cn/attractions.html
+- 联系我们（预订 / 导航）：https://www.longyuannz.cn/contact.html
 
 ## 常见问题（节选）
 - 怎么去？导航搜索「龙苑农庄」，门口 50+ 车位，含 120KW 快充。

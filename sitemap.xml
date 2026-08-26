@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://www.longyuannongzhuang.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.longyuannongzhuang.com/about.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.longyuannongzhuang.com/farm.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.longyuannongzhuang.com/homestay.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.longyuannongzhuang.com/attractions.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.longyuannongzhuang.com/contact.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.longyuannz.cn/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.longyuannz.cn/about.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.longyuannz.cn/farm.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.longyuannz.cn/homestay.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.longyuannz.cn/attractions.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.longyuannz.cn/contact.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 </urlset>

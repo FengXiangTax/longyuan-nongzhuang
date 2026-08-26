@@ -63,7 +63,7 @@ python3 -m http.server 8080
 本仓库可直接推送到 GitHub 并通过 Pages 发布为静态网站。
 详见同目录 **`部署操作指引.md`**，按步骤给到 GitHub Token 与仓库名，即可由 AI 助手一键上线。
 
-> ⚠️ 域名说明：若需绑定自定义域名 `www.longyuannongzhuang.com`，请于仓库 **Settings → Pages → Custom domain** 填写；否则请将 `sitemap.xml` 中的域名替换为 GitHub Pages 实际地址（`https://<用户名>.github.io/<仓库名>/`）。
+> ⚠️ 域名说明：若需绑定自定义域名 `www.longyuannz.cn`，请于仓库 **Settings → Pages → Custom domain** 填写；否则请将 `sitemap.xml` 中的域名替换为 GitHub Pages 实际地址（`https://<用户名>.github.io/<仓库名>/`）。
 
 ## 版权与联系
 

@@ -24,4 +24,4 @@ User-agent: anthropic-ai
 Allow: /
 
 # 结构化摘要文件，便于 AI 直接读取
-Sitemap: https://www.longyuannongzhuang.com/sitemap.xml
+Sitemap: https://www.longyuannz.cn/sitemap.xml
