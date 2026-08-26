@@ -1,0 +1,910 @@
+/* ═══════════════════════════════════════════════
+   龙苑农庄官网 v2 — 优化增强样式
+   作用：强刺激数据化模块 / AI 搜索可见性辅助样式
+   设计语言：沿用原站乡村大地色系，新增「橙黄强调色」制造转化刺激
+   ═══════════════════════════════════════════════ */
+
+:root {
+  /* 强刺激强调色（橙黄系，用于数据高亮与转化按钮） */
+  --color-stim: #E2620E;        /* 烧橙，数据墙主色 */
+  --color-stim-dark: #B94E08;
+  --color-stim-light: #F4842B;
+  --color-stim-glow: rgba(226, 98, 14, 0.18);
+  --color-ink: #2A1C12;         /* 数据墙深色底 */
+  --color-ink-2: #3D2B1F;
+  --grad-stim: linear-gradient(135deg, #7A3F1E 0%, #B94E08 55%, #E2620E 100%);
+}
+
+/* ─── 强刺激数据墙（首页 / 农庄 / 民宿 共用） ─── */
+.power-stats {
+  position: relative;
+  background: var(--grad-stim);
+  color: #FFF7EF;
+  padding: var(--space-2xl) 0;
+  overflow: hidden;
+}
+.power-stats::after {
+  /* 细微纹理叠层，提升质感 */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(255,255,255,0.10), transparent 42%),
+    radial-gradient(circle at 88% 80%, rgba(0,0,0,0.18), transparent 45%);
+  pointer-events: none;
+}
+.power-stats .container { position: relative; z-index: 1; }
+
+.power-stats-head {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+.power-stats-head .eyebrow {
+  display: inline-block;
+  font-size: var(--text-xs);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #FFD9B8;
+  border: 1px solid rgba(255,217,184,0.45);
+  border-radius: 2rem;
+  padding: 4px 14px;
+  margin-bottom: var(--space-sm);
+}
+.power-stats-head h2 {
+  color: #FFF7EF;
+  font-size: clamp(var(--text-xl), 3.6vw, var(--text-3xl));
+  margin-bottom: var(--space-xs);
+}
+.power-stats-head p {
+  color: rgba(255,247,239,0.82);
+  margin: 0 auto;
+  max-width: 60ch;
+}
+
+.power-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+.power-card {
+  text-align: center;
+  padding: var(--space-lg) var(--space-sm);
+  background: rgba(255, 247, 239, 0.08);
+  border: 1px solid rgba(255, 247, 239, 0.18);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(4px);
+  transition: transform var(--duration-base) var(--ease-out-quart),
+              background var(--duration-base) var(--ease-out-quart);
+}
+.power-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 247, 239, 0.14);
+}
+.power-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1;
+  font-size: clamp(var(--text-3xl), 5vw, 3.4rem);
+  color: #FFF7EF;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+.power-number .num { font-variant-numeric: tabular-nums; }
+.power-unit {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: #FFD9B8;
+}
+.power-label {
+  margin-top: var(--space-xs);
+  font-size: var(--text-sm);
+  color: rgba(255, 247, 239, 0.9);
+  font-weight: 500;
+}
+.power-tip {
+  margin-top: 6px;
+  font-size: var(--text-xs);
+  color: rgba(255, 247, 239, 0.62);
+}
+
+/* ─── 利益点 / 为什么选我们 ─── */
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+.benefit-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  border-top: 4px solid var(--color-stim);
+  transition: transform var(--duration-base) var(--ease-out-quart),
+              box-shadow var(--duration-base) var(--ease-out-quart);
+}
+.benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.benefit-num {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--color-stim);
+  line-height: 1;
+}
+.benefit-card h4 {
+  font-size: var(--text-lg);
+  margin: var(--space-sm) 0 var(--space-xs);
+}
+.benefit-card p {
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  margin-bottom: 0;
+}
+
+/* ─── 社会证明 / 好评条 ─── */
+.review-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+.review-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--color-gold);
+}
+.review-stars {
+  color: #E9A13B;
+  font-size: var(--text-lg);
+  letter-spacing: 2px;
+  margin-bottom: var(--space-xs);
+}
+.review-card p {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+.review-author {
+  font-size: var(--text-xs);
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+.review-author span { color: var(--color-stim); }
+
+/* ─── 信任条（媒体 / 认证 logo 墙） ─── */
+.trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-lg);
+  background: var(--color-bg-warm);
+  border-radius: var(--radius-lg);
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-light);
+  padding: var(--space-xs) var(--space-md);
+  background: var(--color-bg-card);
+  border-radius: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+.trust-item .trust-ico { font-size: var(--text-lg); }
+
+/* ─── FAQ 折叠 ─── */
+.faq-list {
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  gap: var(--space-sm);
+}
+.faq-item {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.faq-q {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-md) var(--space-lg);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+}
+.faq-q .faq-icon {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-stim);
+  font-size: var(--text-xl);
+  transition: transform var(--duration-base) var(--ease-out-quart);
+}
+.faq-item.open .faq-q .faq-icon { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--duration-base) var(--ease-out-quart);
+}
+.faq-a-inner {
+  padding: 0 var(--space-lg) var(--space-md);
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+/* ─── 数据徽标(行内强刺激) ─── */
+.metric-pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 2px 10px;
+  background: var(--color-stim-glow);
+  color: var(--color-stim-dark);
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: var(--text-sm);
+}
+.metric-pill b { font-family: var(--font-display); font-size: var(--text-lg); }
+
+/* ─── 提示：示例数据待核实 ─── */
+.data-note {
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--color-text-light);
+  margin-top: var(--space-md);
+}
+.data-note::before { content: "⚠ "; color: var(--color-stim); }
+
+/* ─── 响应式 ─── */
+@media (max-width: 1024px) {
+  .power-grid { grid-template-columns: repeat(2, 1fr); }
+  .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+  .review-strip { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .power-grid { grid-template-columns: 1fr; }
+  .benefit-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ═══════════════════════════════════════════════
+   v2 round 2 — slogan / 3 块奖牌 / 媒体带图 / 充电桩带图 / 农庄主人 3 列
+   ═══════════════════════════════════════════════ */
+
+/* ─── 品牌口号条：贯穿全站醒目位置（加粗放大） ─── */
+.slogan-banner {
+  background: linear-gradient(135deg, #7A3F1E 0%, #B94E08 50%, #E2620E 100%);
+  color: #FFF7EF;
+  padding: calc(var(--nav-height, 64px) + 1.6rem) 0 2.1rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 18px rgba(122, 63, 30, 0.18);
+  margin-top: 0;
+  z-index: 5;
+}
+.slogan-banner::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  background: #FFD9B8;
+  margin: 0.85rem auto 0;
+  border-radius: 2px;
+}
+.slogan-text {
+  font-family: var(--font-display, "Noto Serif SC", serif);
+  font-size: clamp(1.65rem, 3.6vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.18);
+  line-height: 1.3;
+}
+/* 首页 hero h1 加粗放大版（覆盖 hero-title 风格） */
+.slogan-hero {
+  font-size: clamp(2.4rem, 5.5vw, 4rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.04em !important;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.4);
+  line-height: 1.15;
+}
+
+/* ─── 农庄主人 3 列 ─── */
+.host-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px) { .host-grid-3 { grid-template-columns: 1fr; } }
+
+/* ─── 当地政府荣誉 3 张奖牌 ─── */
+.honor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.honor-item {
+  background: var(--color-bg-card, #fff);
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.08));
+  text-align: center;
+  border-top: 4px solid var(--color-stim, #E2620E);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.honor-item:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg, 0 8px 24px rgba(0,0,0,0.12)); }
+.honor-item .honor-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #f5efe8;
+  display: block;
+}
+.honor-item-body { padding: 1.1rem 1.2rem 1.3rem; }
+.honor-item-body h4 { font-size: 1.05rem; font-weight: 700; margin: 0 0 .4rem; color: var(--color-text, #2a1c12); }
+.honor-item-body p { font-size: .85rem; color: var(--color-text-light, #6a5847); line-height: 1.65; margin: 0; }
+.honor-item-body .honor-issuer { display: block; margin-top: .5rem; font-size: .75rem; color: var(--color-stim-dark, #B94E08); font-weight: 600; }
+@media (max-width: 900px) { .honor-grid { grid-template-columns: 1fr; } }
+
+/* ─── 媒体认可（带图卡片） ─── */
+.media-card .media-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #f5efe8;
+  border-radius: 8px;
+  margin-bottom: 0.85rem;
+  display: block;
+}
+.media-card .media-card-img--food { aspect-ratio: 4 / 3; }
+
+/* ─── 充电桩（带图卡片） ─── */
+.charging-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.charging-card {
+  background: var(--color-bg-card, #fff);
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.08));
+  padding: 1rem;
+  border-top: 4px solid var(--color-stim, #E2620E);
+}
+.charging-card .charging-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.85rem;
+  display: block;
+}
+.charging-card .charging-card-icon {
+  display: inline-block;
+  font-size: 1.5rem;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.charging-card h4 { font-size: 1.1rem; font-weight: 700; margin: 0 0 .35rem; }
+.charging-card p { font-size: .88rem; color: var(--color-text-light, #6a5847); margin: .15rem 0; }
+.charging-card .charging-power { color: var(--color-stim, #E2620E); font-weight: 700; }
+.charging-card .charging-caption { color: var(--color-stim, #E2620E); font-weight: 700; font-size: .95rem; margin: .1rem 0 .35rem; }
+@media (max-width: 768px) { .charging-cards { grid-template-columns: 1fr; } }
+
+/* ─── CTA 口号强化 ─── */
+.cta-banner .slogan-cta {
+  font-size: clamp(1.4rem, 3vw, 2rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em;
+}
+
+
+/* ═══════════════════════════════════════════════
+   v4 round 3 — 品牌实力证据带 + footer 公网安备/ICP
+   ═══════════════════════════════════════════════ */
+
+/* ─── 3 张凭证带图 ─── */
+.section-evidence { padding: 4rem 0 2rem; }
+.evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.evidence-item {
+  position: relative;
+  display: block;
+  background: var(--color-bg-card, #fff);
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.08));
+  text-decoration: none;
+  color: inherit;
+  border-top: 4px solid var(--color-stim, #E2620E);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.evidence-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg, 0 8px 24px rgba(0,0,0,0.12));
+}
+.evidence-item img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #f5efe8;
+  display: block;
+}
+.evidence-caption {
+  padding: 1rem 1.25rem 1.25rem;
+  text-align: center;
+}
+.evidence-tag {
+  display: inline-block;
+  font-size: .78rem;
+  background: var(--color-stim, #E2620E);
+  color: #FFF;
+  padding: .25rem .65rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  margin-bottom: .55rem;
+}
+.evidence-caption p {
+  font-size: .85rem;
+  color: var(--color-text-light, #6a5847);
+  line-height: 1.55;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .evidence-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── footer-bottom 多行垂直布局 ─── */
+.footer-bottom p {
+  margin: .3rem 0;
+  line-height: 1.7;
+}
+.footer-bottom a:hover { color: var(--color-stim, #E2620E) !important; }
+
+/* ─── 农庄主人卡片图片统一高度 ─── */
+.host-grid-3 .media-card img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  max-height: 240px;
+  object-fit: cover;
+}
+
+/* ─── 利益点卡片下方凭证图 ─── */
+.benefit-card-media {
+  margin-top: 1.1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+.benefit-card-media img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 900px) {
+  .benefit-card-media img { height: 180px; }
+}
+
+/* ─── footer 底部内容居中（公安图标 beian.png 已替换） ─── */
+.footer-bottom { text-align: center !important; }
+.footer-bottom p { text-align: center !important; }
+.footer-bottom img { display: inline-block; }
+
+/* ─── 充电桩：caption 大字号独立显眼 ─── */
+.charging-card .charging-caption {
+  color: #fff !important;
+  background: var(--color-stim, #E2620E);
+  font-weight: 700;
+  font-size: 1rem;
+  margin: .55rem 0 .35rem;
+  padding: .5rem .75rem;
+  border-radius: 6px;
+  letter-spacing: .5px;
+  line-height: 1.45;
+}
+.charging-card .charging-caption::before {
+  content: "📍 位置：";
+  margin-right: 2px;
+  opacity: .92;
+}
+
+/* ─── 联系页：地址指引文案模块 ─── */
+.address-guide {
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+  background: linear-gradient(135deg, #fff7eb 0%, #fffaf2 100%);
+  border: 1px solid #f3d3a4;
+  border-radius: 14px;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 4px 18px rgba(226,98,14,.06);
+}
+.address-guide-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.address-guide-body { flex: 1; }
+.address-guide-body h3 {
+  margin: 0 0 .4rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-main, #5a3d24);
+}
+.address-main {
+  font-size: 1rem;
+  margin: .3rem 0 1rem;
+  color: var(--color-text-light, #6a5847);
+}
+.address-main strong {
+  color: var(--color-stim, #E2620E);
+  font-weight: 700;
+}
+.address-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 .9rem;
+  counter-reset: step;
+}
+.address-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: .65rem;
+  margin: .55rem 0;
+  font-size: .92rem;
+  line-height: 1.65;
+  color: var(--color-text-light, #6a5847);
+}
+.address-steps .step-num {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-stim, #E2620E);
+  color: #fff;
+  text-align: center;
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 22px;
+}
+.address-steps b { color: var(--color-text-main, #5a3d24); font-weight: 700; }
+.address-tip {
+  margin: 0;
+  padding: .65rem .9rem;
+  background: #fff;
+  border-left: 4px solid var(--color-stim, #E2620E);
+  border-radius: 6px;
+  font-size: .88rem;
+  color: var(--color-text-light, #6a5847);
+}
+.address-tip strong { color: var(--color-stim, #E2620E); font-weight: 700; }
+@media (max-width: 640px) {
+  .address-guide { flex-direction: column; padding: 1.2rem; gap: .8rem; }
+  .address-guide-icon { font-size: 2rem; }
+}
+
+/* ─── 媒体卡：官方视频/证书链接跳转按钮 ─── */
+.media-card .media-link-btn {
+  display: inline-block;
+  margin-top: .7rem;
+  padding: .5rem 1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #E2620E 0%, #d14714 100%);
+  color: #fff !important;
+  text-decoration: none !important;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .3px;
+  transition: transform .25s, box-shadow .25s;
+}
+.media-card .media-link-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(226, 98, 14, .25);
+}
+.media-card .media-link-btn::after {
+  content: "↗";
+  margin-left: 4px;
+  opacity: .85;
+}
+.media-card .media-link-btn--local {
+  background: linear-gradient(135deg, #8a6a4b 0%, #6a5847 100%);
+}
+.media-card .media-link-btn--local:hover {
+  box-shadow: 0 6px 16px rgba(106, 88, 71, .25);
+}
+
+/* ─── 充电桩：图片下方灰色小字标注 ─── */
+.charging-card .charging-card-media {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.charging-card .charging-img-note {
+  font-size: .82rem;
+  color: #888 !important;
+  background: #f6f4ef;
+  border-top: 1px dashed #d9d0c2;
+  margin: 0;
+  padding: .55rem .85rem;
+  text-align: center;
+  letter-spacing: .3px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.charging-card .charging-card-body { padding-top: .8rem; }
+
+/* ─── footer 4 行强制居中（双保险） ─── */
+footer .footer-bottom,
+footer .footer-bottom * {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+footer .footer-bottom {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+footer .footer-bottom p,
+footer .footer-bottom a,
+footer .footer-bottom img {
+  display: inline-block;
+}
+
+/* ─── 充电桩：h4 + p 横向居中排版（v8 修复图右→图中→图下） ─── */
+.charging-card .charging-card-body {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+  flex-wrap: wrap;
+  padding: 1rem 1rem .35rem;
+}
+.charging-card .charging-card-title {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.charging-card .charging-card-desc {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  font-size: .88rem;
+  color: var(--color-text-light, #6a5847);
+  white-space: nowrap;
+}
+.charging-card .charging-card-icon {
+  margin-right: 4px;
+  font-size: 1.25rem;
+}
+
+/* ─── 媒体卡：箭头不换行 + 政府公示原文按钮样式 ─── */
+.media-card .media-link-btn {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.media-card .media-link-btn::after {
+  content: "↗";
+  margin-left: 0;
+  opacity: .85;
+  display: inline-block;
+}
+.media-card .media-link-btn--gov {
+  background: linear-gradient(135deg, #2f6e3e 0%, #1f5a30 100%);
+}
+.media-card .media-link-btn--gov:hover {
+  box-shadow: 0 6px 16px rgba(31, 90, 48, .25);
+}
+
+
+/* ═══════════════════════════════════════════════
+   v10 round — 联系页：5 平台官方 Logo + 5 张二维码一排平铺
+   ═══════════════════════════════════════════════ */
+
+/* ─── 平台介绍语 ─── */
+.platform-intro {
+  font-size: .95rem;
+  color: var(--color-text-light, #6a5847);
+  max-width: 680px;
+  margin: .35rem auto 1.4rem;
+  line-height: 1.7;
+}
+
+/* ─── 官方 App Logo 图标（替换 emoji） ─── */
+.platform-link {
+  align-items: center;
+  gap: .55rem;
+}
+.platform-link .platform-link-icon-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  vertical-align: middle;
+  transition: transform .25s, box-shadow .25s;
+  display: inline-block;
+}
+.platform-link:hover .platform-link-icon-img {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+}
+
+/* ─── 5 张二维码一排平铺栅格 ─── */
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.2rem;
+  max-width: 1080px;
+  margin: 2rem auto 0;
+  padding: 0 .25rem;
+}
+.qr-card {
+  background: var(--color-bg-card, #fff);
+  border-radius: var(--radius-lg, 12px);
+  padding: 1rem .75rem 1.05rem;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(74, 51, 35, .08);
+  border: 1px solid rgba(226, 98, 14, .15);
+  border-top: 4px solid var(--color-stim, #E2620E);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.qr-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(226, 98, 14, .18);
+}
+.qr-card .qr-card-img {
+  width: 100%;
+  max-width: 170px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  margin: 0 auto .75rem;
+  display: block;
+  background: #fff;
+  padding: 6px;
+  border-radius: 8px;
+}
+.qr-card .qr-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text, #2a1c12);
+  margin: 0 0 .35rem;
+}
+.qr-card .qr-card-desc {
+  font-size: .8rem;
+  color: var(--color-text-light, #6a5847);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* 平板：5 → 3 列 */
+@media (max-width: 1024px) {
+  .qr-grid { grid-template-columns: repeat(3, 1fr); }
+}
+/* 平板以下：3 → 2 列 */
+@media (max-width: 768px) {
+  .qr-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .qr-card .qr-card-img { max-width: 150px; }
+}
+/* 手机：保持 2 列 */
+@media (max-width: 480px) {
+  .qr-grid { grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+  .qr-card { padding: .8rem .5rem .9rem; }
+  .qr-card .qr-card-title { font-size: .95rem; }
+  .qr-card .qr-card-desc { font-size: .75rem; }
+  .qr-card .qr-card-img { max-width: 130px; padding: 4px; }
+}
+/* ═══════════════════════════════════════════════════════
+   Round 14 — 民宿页（homestay）+ 联系页（contact）平衡布局
+   ────────────────────────────────────────────────────── */
+
+/* 民宿家庭套房缩略图：紧凑 1 行 3 张小图 */
+.room-card .gallery-grid--small {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.room-card .gallery-grid--small .gallery-item img {
+  height: 80px;
+  min-height: 0;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.room-card .gallery-grid--small .gallery-item-overlay span {
+  font-size: .75rem;
+  padding: 2px 6px;
+}
+
+/* 联系页左右两栏等高对齐 */
+.contact-grid--balanced {
+  align-items: stretch;
+}
+.contact-grid--balanced > * {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg, 12px);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+}
+.contact-grid--balanced .form {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.contact-grid--balanced .form > * { margin-left: 0; margin-right: 0; }
+.contact-grid--balanced .form form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.contact-grid--balanced .form .form-submit {
+  margin-top: auto;
+}
+.contact-grid--balanced > .contact-col-card > h3:first-child {
+  margin-bottom: var(--space-md);
+}
+.contact-grid--balanced > .contact-col-card #feedback > h3:first-child {
+  margin-bottom: var(--space-md);
+}
+@media (max-width: 768px) {
+  .contact-grid--balanced > * {
+    padding: var(--space-md);
+  }
+}
+
+/* ═══ ★ R17 homestay.html 两房一厅家庭套房 — 大图 + 标题单行 + 节奏舒适 ═══ */
+.room-card--suite .room-card-img img {
+  min-height: 420px;
+  height: 100%;
+}
+.room-card--suite .room-card-body {
+  padding: var(--space-xl) var(--space-lg);
+  gap: var(--space-sm);
+  line-height: 1.75;
+}
+.room-card--suite .room-card-body h3 {
+  white-space: nowrap;
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.02em;
+}
+.room-card--suite .room-card-body ul li {
+  padding: 0.35rem 0 0.35rem var(--space-md);
+  line-height: 1.6;
+}
+

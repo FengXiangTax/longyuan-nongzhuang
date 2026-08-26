@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#3385FF"/>
+  <!-- 蓝底白字"百度" -->
+  <text x="32" y="38" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-weight="900" font-size="18" fill="#fff" letter-spacing="-1">百度</text>
+  <!-- 红点 -->
+  <circle cx="46" cy="22" r="3.5" fill="#FF4D4F"/>
+</svg>

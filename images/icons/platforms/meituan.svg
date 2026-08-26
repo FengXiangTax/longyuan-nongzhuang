@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#FFC300"/>
+  <!-- 袋鼠耳朵 -->
+  <ellipse cx="22" cy="20" rx="6" ry="8" fill="#fff"/>
+  <ellipse cx="42" cy="20" rx="6" ry="8" fill="#fff"/>
+  <!-- 袋鼠脸 -->
+  <ellipse cx="32" cy="34" rx="18" ry="16" fill="#fff"/>
+  <!-- 眼睛 -->
+  <circle cx="27" cy="32" r="2.4" fill="#FFC300"/>
+  <circle cx="37" cy="32" r="2.4" fill="#FFC300"/>
+  <!-- 鼻子 -->
+  <ellipse cx="32" cy="40" rx="3.5" ry="2.2" fill="#FFC300"/>
+</svg>

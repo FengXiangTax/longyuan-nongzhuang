@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#00B0FF"/>
+  <!-- 定位针 -->
+  <path d="M32 12 C 22 12, 16 20, 16 28 C 16 38, 32 52, 32 52 C 32 52, 48 38, 48 28 C 48 20, 42 12, 32 12 Z" fill="#fff"/>
+  <circle cx="32" cy="26" r="5" fill="#00B0FF"/>
+</svg>

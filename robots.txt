@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# ── AI 搜索引擎 / 大模型爬虫放行 ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# 结构化摘要文件，便于 AI 直接读取
+Sitemap: https://www.longyuannongzhuang.com/sitemap.xml
