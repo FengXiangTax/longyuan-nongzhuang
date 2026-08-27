@@ -1,0 +1,5 @@
+# 本地原图备份，不部署、不提交
+images_original_backup/
+
+# macOS 系统文件
+.DS_Store
